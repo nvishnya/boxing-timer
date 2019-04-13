@@ -5,7 +5,7 @@
 # Quickstart
 * Clone this repository
 * Install node modules `npm install`
-* Compile and minify for production `npm run build`
+* Build the project `npm run build`
 
 # Available scripts
 * `npm run serve` compiles and hot-reloads for development
