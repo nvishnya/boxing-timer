@@ -122,9 +122,9 @@ export default {
     components: { ArrowButton },
     data(){
         return {
-            rounds: 3,
-            round: 20,
-            rest: 20,
+            rounds: 12,
+            round: 180,
+            rest: 60,
             prepare: 10,
             warning: 10,
 
