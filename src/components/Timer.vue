@@ -78,7 +78,7 @@
                         <v-btn fab large outline v-if="isRunning" @click="pause()">
                             <v-icon>pause</v-icon>
                         </v-btn>
-                        <v-btn fab large outline @click="reset()">
+                        <v-btn fab large outline v-if="isRunning || current!=1" @click="reset()">
                             <v-icon>refresh</v-icon>
                         </v-btn>
                         <v-btn fab large outline v-if="!isRunning && current==1" @click="setUp = !setUp">
