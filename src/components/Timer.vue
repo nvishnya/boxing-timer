@@ -167,9 +167,12 @@ export default {
     watch: {
         phase: {
             handler(val, oldVal){
-                if(this.isRunning){
-                    this.play()
-                }
+                if(this.isRunning){ this.play(val) }
+            }
+        },
+        current: {
+            handler(val, oldVal){
+                if(oldVal == this.total) { this.play("rest") }
             }
         }
     },
@@ -177,8 +180,8 @@ export default {
         format: function(seconds){
             return moment.utc(moment.duration((seconds), 's').asMilliseconds()).format("mm:ss")
         },
-        play: function(){
-            new Audio(require('../assets/audio/' + this.phase + '.ogg')).play()
+        play: function(phase){
+            new Audio(require('../assets/audio/' + phase + '.ogg')).play()
         },
         tick: function(){
             if(this.current < this.total){
