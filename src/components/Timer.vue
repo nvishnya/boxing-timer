@@ -82,7 +82,8 @@
                             <v-icon>refresh</v-icon>
                         </v-btn>
                         <v-btn fab large outline v-if="!isRunning && current==1" @click="setUp = !setUp">
-                            <v-icon>edit</v-icon>
+                            <v-icon v-if="setUp">check</v-icon>
+                            <v-icon v-else>edit</v-icon>
                         </v-btn>
                     </v-layout>
                 </v-flex>
