@@ -190,6 +190,9 @@ export default {
             else { this.reset(); }
         },
         start: function(){
+            if(this.prepare == 0){
+                this.play("round");
+            }
             this.setUp = false;
             this.isRunning = true;
             this.interval = setInterval((this.tick), 1000);
