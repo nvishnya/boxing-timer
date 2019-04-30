@@ -1,4 +1,7 @@
 # BoxingTimer
+The app is a configurable boxing round timer designed for boxing, MMA and other martial arts and sports trainings.
+
+Demo: https://nvishnya.github.io/boxing-timer/
 # Requirements
 * **Node.js** and **npm**
 
