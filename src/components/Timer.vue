@@ -59,7 +59,7 @@
                         </v-layout>
                     </fieldset>
                 </v-flex>
-                <v-flex class="text-xs-center main-font mt-3">
+                <v-flex class="text-xs-center main-font">
                     <v-layout justify-space-around class="main-font">
                         <v-flex xs5 class="text-xs-right">
                             TOTAL
@@ -71,7 +71,7 @@
                     </v-layout>
                 </v-flex>
                 <v-flex d-flex>
-                    <v-layout row justify-center class="mt-1 mb-1">
+                    <v-layout row justify-center class="">
                         <v-btn fab large outline v-if="!isRunning" @click="start()">
                             <v-icon>play_arrow</v-icon>
                         </v-btn>
