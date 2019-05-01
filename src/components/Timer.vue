@@ -93,7 +93,7 @@
             <v-layout column>
                 <v-flex>
                     <fieldset @click="selectedPhase = 'rounds'" :disabled="!setUp"
-                              class="text-xs-center phase-as-button phase-font">
+                              class="text-xs-center phase-as-button phase-font rounds-phase">
                         <legend class="phase-font text-xs-center">ROUNDS</legend>
                         {{ rounds }}
                     </fieldset>
@@ -253,6 +253,7 @@ $warning-color: #FF9800;
 $prepare-color: #FFFF00;
 $round-color: #76FF03;
 $rest-color: #D50000;
+$rounds-color: white;
 $phase-border: 10px;
 $clock-font-color: white;
 $clock-font: cursive;
@@ -280,6 +281,9 @@ $main-font: 'Montserrat', sans-serif;
 }
 .rest-phase{
     @include phase-coloring($rest-color)
+}
+.rounds-phase{
+    @include phase-coloring($rounds-color)
 }
 .phase-as-button{
     background-color: transparent;
