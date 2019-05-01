@@ -247,6 +247,7 @@ export default {
 </script>
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600');
 
 $warning-color: #FF9800;
 $prepare-color: #FFFF00;
@@ -255,7 +256,8 @@ $rest-color: #D50000;
 $phase-border: 10px;
 $clock-font-color: white;
 $clock-font: cursive;
-$main-font: 'Abril Fatface', cursive;
+$main-font: 'Montserrat', sans-serif;
+
 
 %default-font{
     font-family: $main-font;
