@@ -5,59 +5,59 @@
                 <v-flex class="text-xs-center main-font">
                         ROUND {{ phaseNumber }} OF {{ addZeroIfOneDigit(rounds) }}
                 </v-flex>
-                <v-flex class="text-xs-center main-font"
-                        v-bind:class="[setUp ? selectedPhase + '-phase' : phase + '-phase']">
-                    <p v-if="!setUp">{{ phase.toUpperCase() }}</p>
-                    <p v-else>{{ selectedPhase.toUpperCase() }}</p>
-                </v-flex>
-                <v-flex class="text-xs-center clock-border pa-2"
-                        v-bind:class="[setUp ? selectedPhase + '-phase' : phase + '-phase']">
-                    <v-layout row justify-center v-if="setUp && selectedPhase!='rounds'">
-                        <v-flex xs6>
-                            <arrow-button v-bind:arrowIcon="'arrow_drop_up'"
-                                          v-on:edit-time="increment(selectedPhase, stepMinutes)"/>
-                        </v-flex>
-                        <v-flex xs6>
-                            <arrow-button v-bind:arrowIcon="'arrow_drop_up'"
-                                          v-on:edit-time="increment(selectedPhase, stepSeconds)"/>
-                        </v-flex>
-                    </v-layout>
-                    <v-layout justify-space-around class="clock-font" v-if="!setUp">
-                        <v-flex xs5 class="text-xs-right">
-                            {{ addZeroIfOneDigit(minutes) }}
-                        </v-flex>
-                        <v-flex xs1>:</v-flex>
-                        <v-flex xs5 class="text-xs-left">
-                            {{ addZeroIfOneDigit(seconds) }}
-                        </v-flex>
-                    </v-layout>
-                    <v-layout v-else class="clock-font">
-                        <v-flex v-if='selectedPhase != "rounds"'>
-                            {{ format($data[selectedPhase]) }}
-                        </v-flex>
-                        <v-flex v-if="setUp && selectedPhase =='rounds'">
-                            <arrow-button v-bind:arrowIcon="'arrow_left'"
-                                          v-on:edit-time="increment(selectedPhase, -stepRound)"/>                            
-                        </v-flex>  
-                        <v-flex v-if="selectedPhase == 'rounds'">
-                            {{ rounds }}
-                        </v-flex>
-                        <v-flex v-if="setUp && selectedPhase =='rounds'">
-                            <arrow-button v-bind:arrowIcon="'arrow_right'"
-                                          v-on:edit-time="increment(selectedPhase, stepRound)"/>   
-                        </v-flex>                        
-
-                    </v-layout>
-                    <v-layout row justify-center v-if="setUp && selectedPhase!='rounds'">
-                        <v-flex xs6>
-                            <arrow-button v-bind:arrowIcon="'arrow_drop_down'"
-                                          v-on:edit-time="increment(selectedPhase, -stepMinutes)"/>   
-                        </v-flex>
-                        <v-flex xs6>
-                            <arrow-button v-bind:arrowIcon="'arrow_drop_down'"
-                                          v-on:edit-time="increment(selectedPhase, -stepSeconds)"/>   
-                        </v-flex>
-                    </v-layout>
+                <v-flex>
+                    <fieldset class="text-xs-center clock-border pb-4"
+                                v-bind:class="[setUp ? selectedPhase + '-phase' : phase + '-phase']">
+                        <legend class="text-xs-center main-font">
+                            <template v-if="!setUp">{{ phase.toUpperCase() }}</template>
+                            <template v-else>{{ selectedPhase.toUpperCase() }}</template>
+                        </legend>
+                        <v-layout row justify-center v-if="setUp && selectedPhase!='rounds'">
+                            <v-flex xs6>
+                                <arrow-button v-bind:arrowIcon="'arrow_drop_up'"
+                                            v-on:edit-time="increment(selectedPhase, stepMinutes)"/>
+                            </v-flex>
+                            <v-flex xs6>
+                                <arrow-button v-bind:arrowIcon="'arrow_drop_up'"
+                                            v-on:edit-time="increment(selectedPhase, stepSeconds)"/>
+                            </v-flex>
+                        </v-layout>
+                        <v-layout justify-space-around class="clock-font" v-if="!setUp">
+                            <v-flex xs5 class="text-xs-right">
+                                {{ addZeroIfOneDigit(minutes) }}
+                            </v-flex>
+                            <v-flex xs1>:</v-flex>
+                            <v-flex xs5 class="text-xs-left">
+                                {{ addZeroIfOneDigit(seconds) }}
+                            </v-flex>
+                        </v-layout>
+                        <v-layout v-else class="clock-font">
+                            <v-flex v-if='selectedPhase != "rounds"'>
+                                {{ format($data[selectedPhase]) }}
+                            </v-flex>
+                            <v-flex v-if="setUp && selectedPhase =='rounds'">
+                                <arrow-button v-bind:arrowIcon="'arrow_left'"
+                                            v-on:edit-time="increment(selectedPhase, -stepRound)"/>                            
+                            </v-flex>  
+                            <v-flex v-if="selectedPhase == 'rounds'">
+                                {{ rounds }}
+                            </v-flex>
+                            <v-flex v-if="setUp && selectedPhase =='rounds'">
+                                <arrow-button v-bind:arrowIcon="'arrow_right'"
+                                            v-on:edit-time="increment(selectedPhase, stepRound)"/>   
+                            </v-flex>                        
+                        </v-layout>
+                        <v-layout row justify-center v-if="setUp && selectedPhase!='rounds'">
+                            <v-flex xs6>
+                                <arrow-button v-bind:arrowIcon="'arrow_drop_down'"
+                                            v-on:edit-time="increment(selectedPhase, -stepMinutes)"/>   
+                            </v-flex>
+                            <v-flex xs6>
+                                <arrow-button v-bind:arrowIcon="'arrow_drop_down'"
+                                            v-on:edit-time="increment(selectedPhase, -stepSeconds)"/>   
+                            </v-flex>
+                        </v-layout>
+                    </fieldset>
                 </v-flex>
                 <v-flex class="text-xs-center main-font mt-3">
                     <v-layout justify-space-around class="main-font">
@@ -92,21 +92,23 @@
         <v-flex d-flex lg2 offset-lg1 md8 offset-md2 sm10 offset-sm1>
             <v-layout column>
                 <v-flex>
-                    <div class="phase-font text-xs-center">ROUNDS</div>
-                    <button @click="selectedPhase = 'rounds'" :disabled="!setUp" class="text-xs-center phase-as-button phase-font">
+                    <fieldset @click="selectedPhase = 'rounds'" :disabled="!setUp"
+                              class="text-xs-center phase-as-button phase-font">
+                        <legend class="phase-font text-xs-center">ROUNDS</legend>
                         {{ rounds }}
-                    </button>                        
+                    </fieldset>
                 </v-flex>
                 <v-flex v-for="phaseX of ['prepare', 'round', 'warning', 'rest']" :key="phaseX" class="mt-4">
-                        <p class="phase-font text-xs-center"
-                            v-bind:class="phaseX + '-phase'">
+                    <fieldset @click="selectedPhase = phaseX" :disabled="!setUp"
+                              class="text-xs-center phase-as-button phase-font"
+                              v-bind:class="phaseX + '-phase'">
+                        <legend v-bind:class="phaseX + '-phase'" 
+                                class="phase-font text-xs-center">
                             {{ phaseX.toUpperCase() }}
-                        </p>
-                        <button :disabled="!setUp" @click="selectedPhase = phaseX"
-                                class="text-xs-center phase-as-button phase-font" v-bind:class="phaseX + '-phase'">
-                                <span class="phase-clock-font">{{ format($data[phaseX]) }}</span>
-                        </button>
-                    </v-flex>
+                        </legend>
+                        <span class="phase-clock-font">{{ format($data[phaseX]) }}</span>
+                    </fieldset>                    
+                </v-flex>
             </v-layout>
         </v-flex>
     </v-layout>
@@ -261,9 +263,9 @@ $main-font: 'Abril Fatface', cursive;
 @mixin phase-coloring($phase-color){
     color: $phase-color;
     border-color: $phase-color !important;
-    &:hover:enabled{
-        background-color: $phase-color !important;
-    }
+    // &:hover:enabled{
+    //     background-color: $phase-color !important;
+    // }
 }
 .warning-phase{
     @include phase-coloring($warning-color)
@@ -292,8 +294,9 @@ $main-font: 'Abril Fatface', cursive;
         border-style: double;
     }
     &:hover:enabled{
-        background-color: white;
-        color: black;
+        border-style: solid;
+        // background-color: white;
+        // color: black;
     }
 }
 .main-font{
