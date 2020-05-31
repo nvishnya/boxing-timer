@@ -165,10 +165,21 @@ export default {
         phaseNumber: function(){
             return ('0' + this.getPhaseNumber()).slice(-2)
         },
+        phaseAndNumber: function(){
+            return `${this.phase}|${this.phaseNumber}`;
+        }
     },
     watch: {
+        phaseAndNumber:{
+            handler(val, oldVal){ // eslint-disable-line no-unused-vars
+                // const [oldPhase, oldNumber] = oldVal.split('|');
+                // const [newNumber, newNumber] = newVal.split('|');
+                if(this.isRunning){ this.play(val.split('|')[0]) }
+
+            }
+        },
         phase: {
-            handler(val, oldVal){
+            handler(val, oldVal){ // eslint-disable-line no-unused-vars
                 if(this.isRunning){ this.play(val) }
             }
         },
