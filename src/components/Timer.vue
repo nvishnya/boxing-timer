@@ -1,5 +1,5 @@
 <template>
-    <v-layout row wrap fill-height>
+    <v-layout row wrap fill-height :style="{'user-select': 'none'}">
         <v-flex d-flex md12 xs12 sm12 lg7 offset-lg1>
             <v-layout column>
                 <v-flex class="text-xs-center main-font">
