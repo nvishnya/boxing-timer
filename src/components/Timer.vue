@@ -270,7 +270,12 @@ $clock-font-color: white;
 $clock-font: cursive;
 $main-font: 'Montserrat', sans-serif;
 
-
+html, body {
+    height: 100%;
+}
+.container {
+    height: 100%;
+}
 %default-font{
     font-family: $main-font;
 }
