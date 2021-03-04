@@ -357,4 +357,9 @@ $main-font: 'Montserrat', sans-serif;
         height: 75px !important;
     }
 }
+legend {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
 </style>
