@@ -309,6 +309,7 @@ $main-font: 'Montserrat', sans-serif;
     }
     &:enabled{
         border-style: double;
+        cursor: pointer;
     }
     &:hover:enabled{
         border-style: solid;
