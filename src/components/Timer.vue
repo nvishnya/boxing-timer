@@ -221,7 +221,7 @@ export default {
         },
         getPhaseNumber(){
             if(this.current <= this.prepare){
-                return Math.ceil((this.current) / (this.round + this.rest))
+                return Math.ceil((this.current) / (this.round + this.rest)) // this returns Infinity, if rouund & rest = 0!
             }
             else { return Math.ceil((this.current - this.prepare) / (this.round + this.rest)) }
         },
@@ -248,7 +248,9 @@ export default {
             return ('0' + number).slice(-2)
         },
         increment: function(phase, seconds){
-            if(this.$data[phase] + seconds >= 0 && this.$data[phase] + seconds <= 3600){
+            let min = phase == "rounds" || phase == "round" ? 1 : 0;
+            let next = this.$data[phase] + seconds;
+            if(next >= min && next <= 3600){
                 this.$data[phase] += seconds;
             }
         }
