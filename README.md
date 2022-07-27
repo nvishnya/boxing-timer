@@ -3,7 +3,7 @@ The app is a configurable boxing round timer designed for boxing, MMA and other 
 
 Demo: https://nvishnya.github.io/boxing-timer/
 # Requirements
-* **Node.js** and **npm**
+* **Node.js** version 14.X and **npm**
 
 # Quickstart
 * Clone this repository
